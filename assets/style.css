@@ -296,7 +296,7 @@ footer .foot>div:nth-child(2){text-align:center}
 main h2.news-h{font-family:var(--serif)!important;font-style:italic;font-weight:400;font-size:clamp(2.4rem,5.5vw,3.8rem);line-height:1.05;margin:0;padding:0;border:0;color:var(--text)}
 .news-sub{margin:6px 0 0;color:var(--muted)}
 .news-all{font-family:var(--sans)!important;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text);border-bottom:1px solid var(--muted);padding-bottom:6px;white-space:nowrap}
-.news-all::after,.nlinks a::after{content:"  ↗";font-weight:700}
+.news-all::after,.nlinks a::after{content:"";font-weight:700}
 .news-all:hover,.nlinks a:hover{text-decoration:none;color:var(--accent)}
 .news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));column-gap:clamp(24px,3.5vw,46px)}
 .nitem{border-top:2px solid var(--text);border-bottom:2px solid var(--text);padding:34px 0 30px;margin-bottom:40px;display:flex;flex-direction:column}
@@ -863,7 +863,7 @@ main h2.news-h .h-tag{font-family:var(--serif);font-weight:400;font-style:italic
 /* v-news-2: abstract pop-out card */
 .nlinks .nbtn-abs,.ntitle-btn{font:inherit;background:none;border:0;padding:0;cursor:pointer;color:inherit;text-align:left}
 .nlinks .nbtn-abs{font-family:var(--serif)!important;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.nlinks .nbtn-abs::after{content:" ↗"}
+.nlinks .nbtn-abs::after{content:""}
 .nlinks .nbtn-abs:hover,.ntitle-btn:hover{color:var(--accent)}
 .modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.55);backdrop-filter:blur(3px)}
 .modal[hidden]{display:none}
@@ -956,3 +956,10 @@ a.gust{text-decoration:none}
   .hero .profile{cursor:pointer;-webkit-tap-highlight-color:transparent}
   .hero .profile.cap-on .pcap{opacity:1;visibility:visible;transform:translate(-50%,0)}
 }
+
+/* v-otc-icons: line icons instead of emoji (same look on every device) */
+.otc h3 .oi{width:1.4em;height:1.4em;vertical-align:-.32em;margin-right:.4em;color:var(--accent)}
+
+/* v-arrows: drawn arrow (no font/emoji differences between devices) */
+.arr{width:.72em;height:.72em;display:inline-block;vertical-align:.02em;margin-left:.15em}
+.news-all::after,.nlinks a::after,.nlinks .nbtn-abs::after{display:inline-block;width:.72em;height:.72em;margin-left:.4em;vertical-align:.02em;background-color:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3 9L9 3M4.2 3H9v4.8' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3 9L9 3M4.2 3H9v4.8' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}

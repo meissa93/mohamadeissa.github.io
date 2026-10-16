@@ -946,3 +946,13 @@ a.gust{text-decoration:none}
 /* v-kcplot: VIV figure in logo card */
 .kc-plot{margin:2px 0 12px}.kc-plot img{display:block;width:100%;height:auto;border-radius:8px;background:#fff;border:1px solid var(--line)}
 @media(max-height:960px){.kcard{max-height:calc(100vh - 84px);overflow-y:auto;scrollbar-width:thin;overscroll-behavior:contain}.kcard::before{display:none}}
+
+/* v-mobile-fixes: SVG theme icon; tap-to-show photo caption on touch screens */
+#theme-toggle{display:inline-flex;align-items:center;justify-content:center;line-height:1}
+#theme-toggle svg{width:26px;height:26px;display:block}
+#theme-toggle:hover{color:var(--accent)}
+@media(hover:none){
+  .pcap{position:absolute;left:50%;bottom:16px;margin:0;transform:translate(-50%,8px);opacity:0;visibility:hidden;background:color-mix(in srgb,var(--card) 88%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .hero .profile{cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .hero .profile.cap-on .pcap{opacity:1;visibility:visible;transform:translate(-50%,0)}
+}

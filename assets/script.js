@@ -4,7 +4,7 @@
   root.setAttribute('data-theme',saved==='light'||saved==='dark'?saved:'dark');
   document.addEventListener('DOMContentLoaded',()=>{
     const t=document.getElementById('theme-toggle');
-    const setIcon=()=>t.textContent=root.getAttribute('data-theme')==='dark'?'☀':'☾';
+    const SUN='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.3M12 19.2v2.3M2.5 12h2.3M19.2 12h2.3M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';const MOON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';const setIcon=()=>t.innerHTML=root.getAttribute('data-theme')==='dark'?SUN:MOON;
     setIcon();
     t.onclick=()=>{const n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){};setIcon();};
     const m=document.getElementById('menu-toggle');
@@ -28,6 +28,11 @@
       const c=document.createElement('div');c.className='kcard';c.id='kcard';c.setAttribute('role','tooltip');
       c.innerHTML='<div class="kc-fig"></div><div class="kc-t">'+KCARD_TITLE+'</div>'+KCARD_TEXT.map(t=>'<p>'+t+'</p>').join('');
       c.querySelector('.kc-fig').appendChild(big);brand.insertAdjacentElement('afterend',c);}
+    /* Touch screens: tapping the logo opens/closes the card instead of reloading Home */
+    const kc=document.getElementById('kcard');
+    if(brand&&kc){const touch=window.matchMedia('(hover:none)');
+      brand.addEventListener('click',e=>{if(!touch.matches)return;e.preventDefault();e.stopPropagation();kc.classList.toggle('open');document.querySelectorAll('.cap-on').forEach(x=>x.classList.remove('cap-on'));});
+      document.addEventListener('click',e=>{if(!kc.contains(e.target)&&!brand.contains(e.target))kc.classList.remove('open')});}
     /* "what's this?" hint under the logo: Home page only, all screen sizes; hides once the card has been seen, back on refresh. Tap/click it to open the card (touch screens). */
     const isHome=/(^|\/)(index\.html)?$/.test(location.pathname);
     if(brand&&lg&&isHome){const card=document.getElementById('kcard');const h=document.createElement('button');h.type='button';h.className='khint';h.setAttribute('aria-controls','kcard');h.setAttribute('aria-label','What is this logo?');
@@ -64,4 +69,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     const below=items[k+cols]; if(below) below.classList.add('no-top');
   });
   fix(); window.addEventListener('resize',fix);
+});
+
+/* Touch screens: photo caption ("taken at IBHS") appears only after tapping the photo */
+document.addEventListener('DOMContentLoaded',()=>{
+  const pf=document.querySelector('.hero .profile');if(!pf)return;
+  pf.addEventListener('click',e=>{if(window.matchMedia('(hover:none)').matches){e.stopPropagation();pf.classList.toggle('cap-on');}});
+  document.addEventListener('click',()=>pf.classList.remove('cap-on'));
 });

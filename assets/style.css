@@ -956,3 +956,6 @@ a.gust{text-decoration:none}
 /* v-emoji-img: same emoji picture on every device (Microsoft Fluent emoji, MIT licence); falls back to the device emoji if a file is missing */
 .emo{width:1.15em;height:1.15em;vertical-align:-.2em;display:inline-block}
 img.emo,.card h3 img.emo,.why img.emo{width:1.15em!important;height:1.15em!important;max-width:none!important;margin:0!important;padding:0!important;display:inline-block!important;vertical-align:-.2em!important;border:0!important;border-radius:0!important;box-shadow:none!important;object-fit:contain!important;aspect-ratio:auto!important;background:none!important}
+/* v-theme-icon: drawn sun/moon (same shape as the text symbols) so every device shows it */
+#theme-toggle .ti{width:1em;height:1em;display:block}
+#theme-toggle{min-width:1.6em;min-height:1.6em;display:inline-flex;align-items:center;justify-content:center}

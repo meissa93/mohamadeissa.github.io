@@ -961,3 +961,5 @@ img.emo,.card h3 img.emo,.why img.emo{width:1.15em!important;height:1.15em!impor
 #theme-toggle{min-width:1.6em;min-height:1.6em;display:inline-flex;align-items:center;justify-content:center}
 /* v-khint-clip: iPhone Safari clipped the hand-written '?' inside the button; give the glyph room */
 .khint{overflow:visible!important;line-height:1.25!important;padding:2px 8px 4px 0!important;-webkit-appearance:none;appearance:none}
+/* v-foot-order: phones/tablets — icons, then name/emails, then © line last */
+@media(max-width:1100px){footer .f-mid{display:contents!important}footer .f-mid .fsocial{order:0}footer .f-left{order:1}footer .f-mid .small{order:2;margin-top:14px!important;text-align:center!important}}

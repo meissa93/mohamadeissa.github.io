@@ -4,7 +4,7 @@
   root.setAttribute('data-theme',saved==='light'||saved==='dark'?saved:'dark');
   document.addEventListener('DOMContentLoaded',()=>{
     const t=document.getElementById('theme-toggle');
-    const SUN='<svg class="ti" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.6" fill="currentColor"/><path d="M12 1.8v3.4M12 18.8v3.4M1.8 12h3.4M18.8 12h3.4M4.8 4.8l2.4 2.4M16.8 16.8l2.4 2.4M4.8 19.2l2.4-2.4M16.8 7.2l2.4-2.4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>';const MOON='<svg class="ti" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 3.2A9 9 0 1 0 15.5 20.8 7.4 7.4 0 0 1 15.5 3.2z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>';const setIcon=()=>t.innerHTML=root.getAttribute('data-theme')==='dark'?SUN:MOON;
+    const SUN='<svg class="ti" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.6" fill="currentColor"/><path d="M12 1.8v3.4M12 18.8v3.4M1.8 12h3.4M18.8 12h3.4M4.8 4.8l2.4 2.4M16.8 16.8l2.4 2.4M4.8 19.2l2.4-2.4M16.8 7.2l2.4-2.4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>';const MOON='<svg class="ti" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.63 14.56A9 9 0 1 1 11.39 3.02A7.5 7.5 0 0 0 20.63 14.56z" fill="currentColor"/></svg>';const setIcon=()=>t.innerHTML=root.getAttribute('data-theme')==='dark'?SUN:MOON;
     setIcon();
     t.onclick=()=>{const n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){};setIcon();};
     const m=document.getElementById('menu-toggle');

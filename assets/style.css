@@ -963,3 +963,5 @@ img.emo,.card h3 img.emo,.why img.emo{width:1.15em!important;height:1.15em!impor
 .khint{overflow:visible!important;line-height:1.25!important;padding:2px 8px 4px 0!important;-webkit-appearance:none;appearance:none}
 /* v-foot-order: phones/tablets — icons, then name/emails, then © line last */
 @media(max-width:1100px){footer .f-mid{display:contents!important}footer .f-mid .fsocial{order:0}footer .f-left{order:1}footer .f-mid .small{order:2;margin-top:14px!important;text-align:center!important}}
+/* v-book-arrow: same arrow source as the news links (CSS text arrow, forced text style) */
+.bk-arr::before{content:"\2197\FE0E";font-weight:700}
